@@ -7,5 +7,6 @@ target 'Twitter' do
 
   # Pods for Twitter
 pod 'LBTAComponents'
+pod 'TRON'
 
 end
