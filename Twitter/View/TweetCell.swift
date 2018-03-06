@@ -45,6 +45,7 @@ class TweetCell: DatasourceCell {
         textView.text = "Some random text"
         textView.textContainerInset = .zero
         textView.textContainer.lineFragmentPadding = 0
+        textView.backgroundColor = .clear
         return textView
     }()
     
@@ -61,5 +62,40 @@ class TweetCell: DatasourceCell {
         
         profileImageView.anchor(topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 50, heightConstant: 50)
         messageTextView.anchor(profileImageView.topAnchor, left: profileImageView.rightAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        
+        setupBottomButtons()
+    }
+    
+    fileprivate func setupBottomButtons() {
+        let replyButton: UIButton = {
+            let button = UIButton(type: .system)
+            button.setImage(#imageLiteral(resourceName: "profile").withRenderingMode(.alwaysOriginal), for: .normal)
+            button.imageView?.contentMode = .scaleAspectFit
+            return button
+        }()
+        let retweetButton: UIButton = {
+            let button = UIButton(type: .system)
+            button.setImage(#imageLiteral(resourceName: "profile").withRenderingMode(.alwaysOriginal), for: .normal)
+            button.imageView?.contentMode = .scaleAspectFit
+            return button
+        }()
+        let likeButton: UIButton = {
+            let button = UIButton(type: .system)
+            button.setImage(#imageLiteral(resourceName: "profile").withRenderingMode(.alwaysOriginal), for: .normal)
+            button.imageView?.contentMode = .scaleAspectFit
+            return button
+        }()
+        let dmButton: UIButton = {
+            let button = UIButton(type: .system)
+            button.setImage(#imageLiteral(resourceName: "profile").withRenderingMode(.alwaysOriginal), for: .normal)
+            button.imageView?.contentMode = .scaleAspectFit
+            return button
+        }()
+        let buttonStackView = UIStackView(arrangedSubviews: [replyButton, retweetButton, likeButton, dmButton])
+        buttonStackView.axis = .horizontal
+        buttonStackView.distribution = .fillEqually
+        
+        addSubview(buttonStackView)
+        buttonStackView.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 4, rightConstant: 0, widthConstant: 0, heightConstant: 20)
     }
 }
