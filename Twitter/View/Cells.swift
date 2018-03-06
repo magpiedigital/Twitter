@@ -21,6 +21,8 @@ class UserHeader: DatasourceCell {
     override func setupViews() {
         super.setupViews()
         
+        backgroundColor = .white
+        
         separatorLineView.isHidden = false
         separatorLineView.backgroundColor = UIColor(r: 220, g: 220, b: 220)
         
@@ -45,6 +47,6 @@ class UserFooter: DatasourceCell {
         separatorLineView.backgroundColor = UIColor(r: 220, g: 220, b: 220)
         
         addSubview(textLabel)
-        textLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        textLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 14, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
 }

@@ -16,6 +16,14 @@ extension HomeDataSourceController {
         
         navigationController?.navigationBar.backgroundColor = .white
         navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        
+        let navBarSeperatorView = UIView()
+        navBarSeperatorView.backgroundColor = UIColor(r: 220, g: 220, b: 220)
+        view.addSubview(navBarSeperatorView)
+        navBarSeperatorView.anchor(view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0.5)
+        
     }
     
     private func setupNavTitle() {
