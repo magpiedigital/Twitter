@@ -16,6 +16,10 @@ class HomeDataSourceController: DatasourceController {
         self.datasource = HomeDataSource()
     }
     
+    private func setupNavigationBarItems() {
+        print(123)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
@@ -24,7 +28,7 @@ class HomeDataSourceController: DatasourceController {
         
         if let user = datasource?.item(indexPath) as? User {
 
-            let size = CGSize(width: view.frame.width-12-50-8, height: 9999)
+            let size = CGSize(width: view.frame.width-12-50-8-12, height: 9999)
             let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)]
             let estimatedFrame = NSString(string: user.bioText).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
 
