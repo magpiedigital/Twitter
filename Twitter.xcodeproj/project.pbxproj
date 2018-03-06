@@ -75,8 +75,8 @@
 		177FC2AA204D91200030E250 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				177FC2AB204D912F0030E250 /* Cells.swift */,
 				177FC2B3204DB3AB0030E250 /* UserCell.swift */,
+				177FC2AB204D912F0030E250 /* Cells.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
