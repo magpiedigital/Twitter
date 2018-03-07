@@ -75,9 +75,9 @@
 		177FC2A9204D911B0030E250 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				177FC2AD204D916B0030E250 /* HomeDataSource.swift */,
 				177FC2B1204DAF510030E250 /* User.swift */,
 				17EDD66F204EDEC8005E1162 /* Tweet.swift */,
+				177FC2AD204D916B0030E250 /* HomeDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

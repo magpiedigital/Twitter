@@ -13,35 +13,16 @@ import SwiftyJSON
 class HomeDataSource: Datasource, JSONDecodable {
     
     let users: [User]
+    let tweets: [Tweet]
     
     required init(json: JSON) throws {
-        print("Now ready to parse JSON \n", json)
+        let usersJSON = json["users"].array
+        self.users = usersJSON!.map{User(json: $0)}
         
-        var users = [User]()
-        
-        let array = json["users"].array
-        for user in array! {
-            let name = user["name"].stringValue
-            let username = user["userName"].stringValue
-            let bio = user["bio"].stringValue
-            
-            let user = User(name: name, username: username, bioText: bio)
-            users.append(user)
-        }
-        
-        self.users = users
-        
+        let tweetsJSON = json["tweets"].array
+        self.tweets = tweetsJSON!.map({ return Tweet(json: $0)})
+                
     }
-    
-    
-    let tweets: [Tweet] = {
-        let user1 = User(name: "Hamish Johnson", username: "@hamishjohnson", bioText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer in volutpat nulla. Donec non nisl sit amet justo placerat pellentesque eleifend vel mauris.")
-        
-        let tweet = Tweet(user: user1, message: "Welcome to episode 9 of the twitter series. Really hope you guys are enjoying this series so far. I really really need a long text bock to render out. So we're going to stop here.")
-        let tweet2 = Tweet(user: user1, message: "This is the second tweet message for our sample project. Very very exciting...")
-        
-        return [tweet, tweet2]
-    }()
     
     override func headerClasses() -> [DatasourceCell.Type]? {
         return [UserHeader.self]
